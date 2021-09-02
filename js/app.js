@@ -1,4 +1,4 @@
-const errorOne = document.getElementById('error-1');
+// load data from api
 const loadInfo = () => {
     const searchText = document.getElementById('search-field');
     const searchValue = searchText.value;
@@ -13,8 +13,10 @@ const loadInfo = () => {
     
 
 }
-
+// display data 
 const displayInfo = books => {
+
+    // show search result
     const totalResult = document.getElementById('total-result');
     totalResult.textContent = '';
         const resultDiv = document.createElement('div');
@@ -25,11 +27,13 @@ const displayInfo = books => {
 
     const info = books.docs;
     // error handing
+    const errorOne = document.getElementById('error-1');
     if (info.numFound || info.num_found === 0) {
         errorOne.classList.add('d-block');
     } else {
         errorOne.classList.add('d-none');
     }
+    // card creat and append
     const bookContainer = document.getElementById('book-container');
     bookContainer.textContent = '';
 
